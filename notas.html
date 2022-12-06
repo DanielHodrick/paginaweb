@@ -1,0 +1,792 @@
+
+<!DOCTYPE html >
+<html >
+   <head>
+        <title>Student System</title>
+        	
+
+        <link href="/img/logo1.png" rel="icon" type="image/x-icon">
+        <link rel="alternate" type="application/rss+xml" title="Jkanime RSS Feed" href="http://localhost/proyecto-final/admproducto.php"/>
+        <script src="https://cdn.jkdesu.com/assets2/js/jquery-3.3.1.min.js"></script>
+               <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+
+        <!-- Css Styles -->
+        <link rel="stylesheet" href="formato1.css" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jkdesu.com/assets2/css/font-awesome.min.css" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jkdesu.com/assets2/css/elegant-icons.css" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jkdesu.com/assets2/css/plyr.css" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jkdesu.com/assets2/css/nice-select.css?=v1.0" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jkdesu.com/assets2/css/owl.carousel.min.css" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jkdesu.com/assets2/css/slicknav.min.css" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jkdesu.com/assets2/css/jquery-confirm.css" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jkdesu.com/assets2/css/jquery.toast.css" type="text/css">
+        <link rel="stylesheet" href="stylos.css" type="text/css">
+
+            
+            
+                <script>
+
+ $(function(){
+$('#darkswitch').change(function() {
+        if ($(this).is(':checked')) {
+         crear_cookie("darkmode","true",43200);
+         $('head').append('<link id="darkcss" rel="stylesheet" href="https://cdn.jkdesu.com/assets2/css/dark.css?=v3.9" type="text/css" />');
+         $(".header__logo img").attr("src", $(".header__logo img").attr("src"));
+        } else {
+           $('#darkcss').remove();
+           crear_cookie("darkmode","false",-1);
+           $(".header__logo img").attr("src", $(".header__logo img").attr("src").replace("-dark.png",".png"));
+        }
+      });
+
+if(leer_cookie("darkmode")) {
+$( "#darkswitch" ).prop( "checked", true );
+$(".header__logo img").attr("src", $(".header__logo img").attr("src"));
+
+}
+
+    });
+ 
+ function darkmode() {
+if(!$("#darkcss").length) {
+$('head').append('<link id="darkcss" rel="stylesheet" href="https://cdn.jkdesu.com/assets2/css/dark.css?=v3.9" type="text/css" />');
+darkmode();
+}
+}
+if(leer_cookie("darkmode")) {
+darkmode();
+}
+</script>
+
+
+            
+            	
+    <style>
+    b.red {
+    color: #ff7600;
+    }
+    </style>
+                                        
+
+                                
+    </head> 
+    <body>
+        <div id="modal"></div>
+    
+     <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <a href="/proyecto-final/header.php">
+                            <img class="logoweb" src="https://i.postimg.cc/J419zqnq/logo2.png" width="120" height="60">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                   <div class="header__nav">
+                        <nav class="header__menu mobile-menu">
+                            
+                            <ul class="addmenu">
+                                <li class="active"><a href="http://localhost/login/login2.html">Inicio</a></li>
+                                <li class="active"><a href="http://localhost/login/notas.html">notas</a></li>
+                                
+                                <li class="active" ><a href="http://localhost/login/mensajes.html">mensajes</a></li>
+                                <li class="active"><a href="http://localhost/login/calendario.html" target="_blank">calendario</a></li>
+                                <li>
+                                    <button data-trigger="#navbar_main" class="d-lg-none btn btn-light navbar-light" type="button">  <span class="navbar-toggler-icon"></span></button>
+					
+                    
+                                </li>
+                                
+                            </ul>
+                            <style>
+                                .header{
+                                background-color: #001920;
+                                }
+                                .header__right{
+                                    margin-top: 15px;
+                                    margin-right: -10px;
+                                }
+
+                                .addmenu {
+                                float:left;
+                                left:50%;
+                                list-style-type:none;
+                                margin: 15px;
+                                padding:0;
+                                position:relative;
+                                
+                                }
+                                .addmenu li {
+                                float:left;
+                                position:relative;
+                                right:60%;
+                                }
+                            </style>
+                            
+                        </nav>
+						
+                    </div>
+                </div>
+                
+                <div class="col-lg-3">
+                    <div class="header__right">
+					
+						
+						
+						<form role="search" autocomplete="off" id="form_search_ajax" class="form_search2" action="/buscar/q/" method="get">
+                             
+                                <input type="search" id="buscalumno" class="buscanime solopc" name="q" class="form_control" rel="Buscar Anime" placeholder="Buscar materia" value="" required/>
+                                
+<button class="buton-form solopc" id="btn_qsubmit" type="submit"><i class="search"></i></button>
+									<div style="display: none;" id="search_results"><div id="qloader" class="lds-ellipsis"><div></div><div></div><div></div><div></div></div></div>							
+                            </form>
+                            
+					<b class="screen-overlay"></b>
+					<!--<button data-trigger="#navbar_main" class="d-lg-none btn btn-light navbar-light" type="button">  <span class="navbar-toggler-icon"></span></button>-->
+					<!--<button data-trigger="#navbar_main" class="btn btn-light navbar-light" type="button">  <span class="navbar-toggler-icon"></span></button>-->
+                    <!--<button data-trigger="#navbar_main" class="btn btn-light navbar-light" type="submit"><i class="fa not fa-user-circle"></i></button>-->
+					<!--<button data-trigger="#navbar_main" class="d-lg-none btn btn-light navbar-light" type="button">  <span class="navbar-toggler-icon"></span></button>-->
+                    <button data-trigger="#navbar_main" class="usr-menu navbar-light" type="button"><i class="fa not fa-user-circle"></i></button>			
+							
+						<nav id="navbar_main" class="solomovil mobile-offcanvas navbar navbar-expand-lg navbar-dark bg-primary">
+						  <div class="offcanvas-header">  
+							<form role="search" id="form_search_ajax" class="form_search2 mob" action="/buscar/q/" method="get">
+                             
+                                <input type="search" id="buscanime" class="buscanime" name="q" class="form_control" rel="Buscar Anime" placeholder="Buscar Materia" value="" required/>
+                                
+                                <button class="buton-form" id="btn_qsubmit" type="submit"><i class="search"></i></button>
+                                
+											
+							<div style="display: none;" class="mob" id="search_results"><div id="qloader" class="lds-ellipsis"><div></div><div></div><div></div><div></div></div></div>				
+																
+                            </form>
+						  </div>
+							</nav>
+						                    	
+
+                    </div>
+                   
+                </div>
+                
+
+
+
+		
+            </div>
+			
+	
+
+
+			
+			
+        </div>
+
+                       </header> 
+                    
+     <section class="solopc" style="display: none;">
+	
+        <div class="menupc">
+		<div class="row">
+            
+						
+					<div class="type-list addmenu">
+                        
+                        <h3 class="selec" >Seleccion de Estudiante</h3>
+                        <ul>  
+                        </ul>
+                        
+                        <ul class="alum">
+
+                            <a href="http://localhost/login/login2.html" class="bloqq"><div >
+                                <div class="">
+                                    <img class="foto" src="https://previews.123rf.com/images/ylivdesign/ylivdesign1709/ylivdesign170907258/86426248-logotipo-de-las-matem%C3%A1ticas-ilustraci%C3%B3n-simple-del-logo-de-vector-de-matem%C3%A1ticas-para-web.jpg" width="150px" height="150px" >
+                                </div>
+                                <div class="anime__sidebar__comment__item__text">
+                                    <h5>Matematicas</h5>
+                                
+                                    <h6>ver notas
+                                                                                                                                                                    </h6>
+                                    <span>                                                 asistencias
+                                                                                                </span>
+                                    
+                                </div>
+                            </div></a> 
+                            <a href="http://localhost/login/login2.html" class="bloqq"><div >
+                                <div class="">
+                                    <img class="foto" src="https://previews.123rf.com/images/ylivdesign/ylivdesign1709/ylivdesign170907258/86426248-logotipo-de-las-matem%C3%A1ticas-ilustraci%C3%B3n-simple-del-logo-de-vector-de-matem%C3%A1ticas-para-web.jpg" width="150px" height="150px" >
+                                </div>
+                                <div class="anime__sidebar__comment__item__text">
+                                    <h5>Matematicas</h5>
+                                
+                                    <h6>ver notas
+                                                                                                                                                                    </h6>
+                                    <span>                                                 asistencias
+                                                                                                </span>
+                                    
+                                </div>
+                            </div></a> 
+                            <a href="http://localhost/login/login2.html" class="bloqq"><div >
+                                <div class="">
+                                    <img class="foto" src="https://previews.123rf.com/images/ylivdesign/ylivdesign1709/ylivdesign170907258/86426248-logotipo-de-las-matem%C3%A1ticas-ilustraci%C3%B3n-simple-del-logo-de-vector-de-matem%C3%A1ticas-para-web.jpg" width="150px" height="150px" >
+                                </div>
+                                <div class="anime__sidebar__comment__item__text">
+                                    <h5>Matematicas</h5>
+                                
+                                    <h6>ver notas
+                                                                                                                                                                    </h6>
+                                    <span>                                                 asistencias
+                                                                                                </span>
+                                    
+                                </div>
+                            </div></a> 
+                            <a href="http://localhost/login/login2.html" class="bloqq"><div >
+                                <div class="">
+                                    <img class="foto" src="https://previews.123rf.com/images/ylivdesign/ylivdesign1709/ylivdesign170907258/86426248-logotipo-de-las-matem%C3%A1ticas-ilustraci%C3%B3n-simple-del-logo-de-vector-de-matem%C3%A1ticas-para-web.jpg" width="150px" height="150px" >
+                                </div>
+                                <div class="anime__sidebar__comment__item__text">
+                                    <h5>Matematicas</h5>
+                                
+                                    <h6>ver notas
+                                                                                                                                                                    </h6>
+                                    <span>                                                 asistencias
+                                                                                                </span>
+                                    
+                                </div>
+                            </div></a> 
+                        </ul>
+                    </div>
+                    
+                    <style>
+                        .row li a{
+                            
+                            text-align: center;                            
+                        }
+                        h3.selec{
+                            text-align: center;
+                            margin-left: -100%;
+                            font-size: 20pt;
+
+                        }
+                        .header_title{
+                        background-color:transparent;
+                        margin-left: 15%;
+                        margin-right: 15%;
+                        }
+                        ul.alum h5{
+                            color:antiquewhite;
+                            font-size: 25pt;
+                            text-align: center;
+                        }
+                        ul.alum h6{
+                            color:antiquewhite;
+                            font-size: 15pt;
+                            text-align: center;
+                        }
+                        ul.alum span{
+                            color:antiquewhite;
+                            font-size: 18pt;
+                            text-align: center;
+                        }
+                        ul.alum{
+                            margin-left: -45%;
+                        }
+                        
+                        img.foto{
+                            margin-left: 13%;
+                        }
+                        img.barra{
+                            margin-top: -35%;
+                            margin-left: -40%;
+                            margin-bottom: -35%;
+                        }
+
+                        .row li a.bloqq{
+                            position: center;
+                            text-align: center;
+                            margin-left: 120px;                            
+                        }
+                    </style>
+                    <div class="type-list addmenu">
+                        <img class="barra" src="/img/divisor.png" height="60pt" width="900pt">
+                    </div>
+					
+					<div class="genre-list addmenu">
+									
+						
+                        
+                        
+                        <h3 class="selec">Listado de materias</h3>
+                        <ul>
+                            
+                          
+                            <li><a href="" title="peliculas de ">Matematicas</a></li>
+                            <li><a href="" title="peliculas de ">Lenguaje</a></li>
+                            <li><a href="" title="peliculas de ">Sociales</a></li>
+                            
+                        </ul>
+                    </div>
+
+                    
+                    
+	</div>    
+                    
+	</section>
+	
+
+         
+
+       
+                
+<section class="destacados guardados spad" style="display: none;">
+		<div class="container">
+
+
+					<div class="section-title init">
+						<h4>Continuar viendo...</h4>
+						
+					<div class="init_select"><select id="guardados_orden">
+					<option value="1">Orden Personalizado</option>
+					<option value="2">Recientes</option>
+                </select>
+                
+                <a class="see_all btn btn-primary" id="mas_recientes" href="/guardado">Ver todo</a>
+				</div>
+			
+				
+			</div>
+			
+			
+			<div id="recientes_div">
+			<div class="row recientes_div"></div>
+			<div id="loader"><div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div></div>
+			<div id="loadbtn"><div id="loadmore" style="display: none;" data-tipo="recientes">Mostrar m�s</div></div>
+			</div>
+			
+		
+	
+		</div>
+	</section>
+	
+<section class="hero">
+        <div class="container">
+			<div class="row">
+		
+			<div class="col-lg-8">
+			
+                <div class="hero__slider owl-carousel">                                 
+                            
+
+			
+			
+            
+            
+			
+			</div>
+			
+			</div>
+			
+			<div class="col-lg-4 pt-3">
+						<label class="switchBtn">
+    <input type="checkbox" id="darkswitch">
+    <div class="slidebtn">Modo noche</div>
+</label>
+			<div class="anime__sidebar__comment">
+
+				<div class="section-title tituloblanco">
+					<h5> Materias</h5>
+				</div>
+				<div class="listadoanime-home">
+					<div class="maximoaltura">
+                        
+                        <!--<a href="https://jkanime.net/heroine-tarumono-kiraware-heroine-to-naisho-no-oshigoto/11/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/heroine-tarumono-kiraware-heroine-to-naisho-no-oshigoto.jpg"  title="Heroine Tarumono! Kiraware Heroine to Naisho no Oshigoto" alt="Heroine Tarumono! Kiraware Heroine to Naisho no Oshigoto">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>Heroine Tarumono! Kiraware Heroine to Naisho no Oshigoto</h5>
+								<h6>  Episodio
+                                                                                                                             11                                         </h6>
+								<span>                                                  Hoy
+                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>-->
+                        <tbody>
+
+
+                            <a href="" class="bloqq"><div class="anime__sidebar__comment__item">
+                                <div class="anime__sidebar__comment__item__pic listadohome">
+                                    <img src="https://previews.123rf.com/images/ylivdesign/ylivdesign1709/ylivdesign170907258/86426248-logotipo-de-las-matem%C3%A1ticas-ilustraci%C3%B3n-simple-del-logo-de-vector-de-matem%C3%A1ticas-para-web.jpg" height="120px" width="80px" title="pelculas: Dawn Fall" alt="peliculas: Dawn Fall">
+                                </div>
+                                <div class="anime__sidebar__comment__item__text">
+                                    <h5>Matematicas</h5>
+                                
+                                    <h6>ver notas
+                                                                                                                                                                    </h6>
+                                    <span>                                                 asistencias
+                                                                                                </span>
+                                    <div class="flechaprogra" s=""><img src="https://cdn.jkanime.net/assets2/css/img/flecha.png"></div>
+                                </div>
+                            </div></a> 
+                            <a href="" class="bloqq"><div class="anime__sidebar__comment__item">
+                                <div class="anime__sidebar__comment__item__pic listadohome">
+                                    <img src="https://image.jimcdn.com/app/cms/image/transf/none/path/s0ca98148aca4e163/image/if3fff4217fad36be/version/1526002951/image.jpg" height="120px" width="80px" title="pelculas: Dawn Fall" alt="peliculas: Dawn Fall">
+                                </div>
+                                <div class="anime__sidebar__comment__item__text">
+                                    <h5>Sociales</h5>
+                                
+                                    <h6>ver notas
+                                                                                                                                                                    </h6>
+                                    <span>                                                 asistencias
+                                                                                                </span>
+                                    <div class="flechaprogra" s=""><img src="https://cdn.jkanime.net/assets2/css/img/flecha.png"></div>
+                                </div>
+                            </div></a> 
+                            <a href="" class="bloqq"><div class="anime__sidebar__comment__item">
+                                <div class="anime__sidebar__comment__item__pic listadohome">
+                                    <img src="https://aprendihoy.com/wp-content/uploads/2021/01/featured-image-chemistry-930x620.png" height="120px" width="80px" title="pelculas: Dawn Fall" alt="peliculas: Dawn Fall">
+                                </div>
+                                <div class="anime__sidebar__comment__item__text">
+                                    <h5>Quimica</h5>
+                                
+                                    <h6>ver notas
+                                                                                                                                                                    </h6>
+                                    <span>                                                 asistencias
+                                                                                                </span>
+                                    <div class="flechaprogra" s=""><img src="https://cdn.jkanime.net/assets2/css/img/flecha.png"></div>
+                                </div>
+                            </div></a> 
+                            <a href="" class="bloqq"><div class="anime__sidebar__comment__item">
+                                <div class="anime__sidebar__comment__item__pic listadohome">
+                                    <img src="https://www.poemas-del-alma.com/blog/wp-content/uploads/2008/07/literatura.gif" height="120px" width="80px" title="pelculas: Dawn Fall" alt="peliculas: Dawn Fall">
+                                </div>
+                                <div class="anime__sidebar__comment__item__text">
+                                    <h5>Lenguaje</h5>
+                                
+                                    <h6>ver notas
+                                                                                                                                                                    </h6>
+                                    <span>                                                 asistencias
+                                                                                                </span>
+                                    <div class="flechaprogra" s=""><img src="https://cdn.jkanime.net/assets2/css/img/flecha.png"></div>
+                                </div>
+                            </div></a> 
+                            <a href="" class="bloqq"><div class="anime__sidebar__comment__item">
+                                <div class="anime__sidebar__comment__item__pic listadohome">
+                                    <img src="https://t1.uc.ltmcdn.com/es/posts/5/5/3/cuales_son_las_7_bellas_artes_24355_600_square.jpg" height="120px" width="80px" title="pelculas: Dawn Fall" alt="peliculas: Dawn Fall">
+                                </div>
+                                <div class="anime__sidebar__comment__item__text">
+                                    <h5>Artes plasticas</h5>
+                                
+                                    <h6>ver notas
+                                                                                                                                                                    </h6>
+                                    <span>                                                 asistencias
+                                                                                                </span>
+                                    <div class="flechaprogra" s=""><img src="https://cdn.jkanime.net/assets2/css/img/flecha.png"></div>
+                                </div>
+                            </div></a> 
+                                <!--  <?php foreach($listaPeli as $pel){ ?>
+                                        
+
+                                        <a href="https://www.pelisplus.lat/top-peliculas/0" class="bloqq"><div class="anime__sidebar__comment__item">
+                                            <div class="anime__sidebar__comment__item__pic listadohome">
+                                                <img src="<?php echo $pel->getImg() ?>" height="120px" width="80px" title="pelculas: Dawn Fall" alt="peliculas: Dawn Fall">
+                                            </div>
+                                            <div class="anime__sidebar__comment__item__text">
+                                                <h5><?= $pel->getNombre() ?></h5>
+                                                
+                                                <?php 
+                                                    foreach ($listaCat as $cat) { 
+                                                    if ($cat->getIdCategoria() == $pel->getIdCategoria()) {
+                                                        
+                                                        echo $cat->getNombre();
+                                                        break;
+                                                    }
+                                                }
+                                                ?>
+                                                <h6>temporadas  <?= $pel->getTemporadas() ?>
+                                                                                                                                                                                </h6>
+                                                <span>                                                  capitulos <?= $pel->getCapitulos() ?>
+                                                                                                            </span>
+                                                <div class="flechaprogra" s=""><img src="https://cdn.jkanime.net/assets2/css/img/flecha.png"></div>
+                                            </div>
+                                        </div></a>                                    
+
+                                        
+                                    <?php } ?>-->
+                                </tbody>
+												
+						
+					</div>
+				</div>
+			</div>
+			</div>
+			
+			</div>
+        </div>
+    </section>
+    
+
+
+    <!--<section class="destacados spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="section-title">
+						<h4><b class="red"><i class="fas fa-clock-o"></i> Proximos Estrenos <span class="time" datetime="2022-06-16 21:52:22 UTC"></span></b></h4>
+					</div>
+				</div>
+			
+                <script>
+           
+            </script>
+					
+						
+                    <div class="solopc">
+			
+            <div class="row">
+                <div class="col-12  pt-3">
+                    <div class="section-title tituloblanco">
+                        <h5 style="text-align: center;">PROXIMOS ESTRENOS</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-9 col-9">
+            <div class="anime__item">
+                <a href="https://www.youtube.com/watch?v=iIsmHDcG5Kg"><div heigt="600" class="anime__item__pic homemini set-bg" data-setbg="https://pbs.twimg.com/media/Eo6vP_wUYAUBxoI.jpg:large" >
+                        
+                    </div>
+                </a>
+                <div class="anime__item__text tituloblanco">
+                    <h3 style="text-align: center;"><a href="https://www.youtube.com/watch?v=iIsmHDcG5Kg">SHE HULK</a></h3>
+                </div>
+            </div>
+            <div class="anime__item">
+                <a href="https://www.youtube.com/watch?v=gm3ZrE_nE-o"><div heigt="600" class="anime__item__pic homemini set-bg" data-setbg="https://es.web.img3.acsta.net/pictures/20/08/24/09/27/5820559.jpg" >
+                        
+                    </div>
+                </a>
+                <div class="anime__item__text tituloblanco">
+                    <h3 style="text-align: center;"><a href="https://www.youtube.com/watch?v=gm3ZrE_nE-o">BLACK ADAM</a></h3>
+                </div>
+            </div>
+        </div>
+				
+			
+						
+						
+										
+						
+					</div>	</div>	
+					
+			
+				
+				
+				<div class="col-lg-12 text-center pt-3">
+						<h4><a href="#top">? Ver Lista Completa ?</a></h4>
+				</div>
+				
+			</div>
+		</div>
+	</section>-->
+	
+    
+   <!--<section id ="top" class="contenido spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="trending__anime">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                <div class="section-title">
+                                    <h4>Ultimos Animes agregados</h4>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <div class="btn__all">
+                             <!--       <a href="#" class="primary-btn">Ver todo <span class="arrow_right"></span></a> ---------
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+						
+                              
+                	
+                            
+                            <?php foreach($listaProd as $prod){ ?>
+                                <div class="col-lg-3 col-md-6 col-sm-6">
+                                    <div class="anime__item">
+                                        <a  href="https://www.youtube.com/"><div class="anime__item__pic set-bg" data-setbg="<?= $prod->getImgweb()?>" style="">
+                                    
+                                        </div></a>
+                                        <div class="anime__item__text"><ul><li>Recomendado</li>
+                                                <li class="anime"> Pelicula
+                                            </li>
+                                            </ul>
+                                            <h5><a  href="https://www.youtube.com/"><?= $prod->getNombre()?></a></h5>
+                                        </div>
+                                    </div>
+                                </div>	
+                            <?php } ?>
+                            
+                            <?php foreach($listaPeli as $pel){ ?>
+                                <div class="col-lg-3 col-md-6 col-sm-6">
+                                    <div class="anime__item">
+                                        <a  href="https://www.youtube.com/"><div class="anime__item__pic set-bg" data-setbg="<?= $pel->getImg()?>" style="">
+                                    
+                                        </div></a>
+                                        <div class="anime__item__text"><ul><li>Concluido</li>
+                                                <li class="anime"> Serie
+                                            </li>
+                                            </ul>
+                                            <h5><a  href="https://www.youtube.com/"><?= $pel->getNombre()?></a></h5>
+                                        </div>
+                                    </div>
+                                </div>	
+                            <?php } ?>
+					                		
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="col-lg-4 col-md-6 col-sm-8 trending_div">
+				
+                                <div class="section-title">
+                                    <h4>Listado de �ltimos agregados</h4>
+                                </div>
+								
+						<ul class="side-menu">
+							
+  
+                                                                                                                                                      
+                                                                                                
+                            <?php foreach($listaProd as $prod){ ?>
+                                
+                                <li class="even">
+                                <a href="https://www.netflix.com/bo/" rel="bookmark"><?= $prod->getNombre()?></a>	
+                            <?php } ?>
+                            <?php foreach($listaPeli as $pel){ ?>
+                                <li class="even">
+                                <a href="https://www.netflix.com/bo/" rel="bookmark"><?= $pel->getNombre()?></a>
+                            <?php } ?>
+                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                                    
+                                                                                                
+					</ul>
+				</div>
+
+
+</div>
+</div>
+</section>-->
+
+                                
+
+
+        </div>
+        
+        
+                 <!--   adnum 1 -->
+
+
+            
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+        
+
+<script src="https://cdn.jkdesu.com/assets2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jkdesu.com/assets2/js/player.js"></script>
+<script src="https://cdn.jkdesu.com/assets2/js/jquery.nice-select.min.js"></script>
+<script src="https://cdn.jkdesu.com/assets2/js/mixitup.min.js"></script>
+<script src="https://cdn.jkdesu.com/assets2/js/jquery.slicknav.js"></script>
+<script src="https://cdn.jkdesu.com/assets2/js/owl.carousel.min.js"></script>
+<script src="https://cdn.jkdesu.com/assets2/js/jquery.simplemodal.js"></script>
+<script src="https://cdn.jkdesu.com/assets2/js/jquery.toast.js"></script>
+<script src="https://cdn.jkdesu.com/assets2/js/jquery-confirm.js"></script>
+<script src="https://cdn.jkdesu.com/assets2/js/main.js?=v5.7"></script>
+
+
+<footer class="footer">
+    <div class="page-up">
+        <a href="#" id="scrollToTopButton"><span class="arrow_carrot-up"></span></a>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="header__logo">
+                    <a href="/proyecto-final/header.php">
+                        <img class= "footlogo" src="/img/logo1.png" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                
+                <div class="footer__nav">
+                    <ul>
+                                <li class="active"><a href="http://localhost/login/login2.html">Inicio</a></li>
+                                
+                                <li class="active"><a href="http://localhost/login/notas.html">notas</a></li>
+                                
+                                <li class="active" ><a href="http://localhost/login/mensajes.html">mensajes</a></li>
+                                <li class="active"><a href="http://localhost/login/calendario.html" target="_blank">calendario</a></li>
+                                
+                                <li><a href="https://discord.otakudesho.net/">Chat</a></li>
+                    </ul>
+                </div>
+                <style>
+                    .footer{
+                    background-color: #001920;
+                    }
+
+                    .footer__nav {
+                    float:left;
+                    left: 10%;
+                    list-style-type:none;
+                    
+                    padding:0;
+                    position:relative;
+                    
+                    }
+                    .footer__nav li {
+                    float:left;
+                    position:relative;
+                    
+
+                    
+                    }
+                    .footlogo {
+                    margin-top: -50%;
+
+                    }
+                </style>
+            </div>
+           
+          </div>
+      </div>
+  </footer>
+
+    </body>
+    
+</html>

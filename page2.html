@@ -1,0 +1,2321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+    <head>
+        <title>Sitio web Peliculas </title>
+        	
+
+        <link href="/img/logo3.png" rel="icon" type="image/x-icon">
+        <link rel="alternate" type="application/rss+xml" title="Jkanime RSS Feed" href="http://localhost/proyecto-final/admproducto.php"/>
+        <script src="https://cdn.jkdesu.com/assets2/js/jquery-3.3.1.min.js"></script>
+               <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+
+        <!-- Css Styles -->
+        <link rel="stylesheet" href="https://cdn.jkdesu.com/assets2/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jkdesu.com/assets2/css/font-awesome.min.css" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jkdesu.com/assets2/css/elegant-icons.css" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jkdesu.com/assets2/css/plyr.css" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jkdesu.com/assets2/css/nice-select.css?=v1.0" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jkdesu.com/assets2/css/owl.carousel.min.css" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jkdesu.com/assets2/css/slicknav.min.css" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jkdesu.com/assets2/css/jquery-confirm.css" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jkdesu.com/assets2/css/jquery.toast.css" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jkdesu.com/assets2/css/style.css?=v5.3" type="text/css">
+            
+                <script>
+    function crear_cookie(cname,cvalue,exMins){var d=new Date();d.setTime(d.getTime()+(exMins*60*1000));var expires="expires="+d.toUTCString();document.cookie=cname+"="+cvalue+";"+expires+";path=/";}
+    function leer_cookie(cname){var name=cname+"=";var decodedCookie=decodeURIComponent(document.cookie);var ca=decodedCookie.split(';');for(var i=0;i<ca.length;i++){var c=ca[i];while(c.charAt(0)==' '){c=c.substring(1);}
+if(c.indexOf(name)==0){return c.substring(name.length,c.length);}}
+return "";}
+ $(function(){
+$('#darkswitch').change(function() {
+        if ($(this).is(':checked')) {
+         crear_cookie("darkmode","true",43200);
+         $('head').append('<link id="darkcss" rel="stylesheet" href="https://cdn.jkdesu.com/assets2/css/dark.css?=v3.12" type="text/css" />');
+         $(".header__logo img").attr("src", $(".header__logo img").attr("src"));
+        } else {
+           $('#darkcss').remove();
+           crear_cookie("darkmode","false",-1);
+           $(".header__logo img").attr("src", $(".header__logo img").attr("src"));
+        }
+      });
+
+if(leer_cookie("darkmode")) {
+$( "#darkswitch" ).prop( "checked", true );
+$(".header__logo img").attr("src", $(".header__logo img").attr("src").replace(".png","-dark.png"));
+
+}
+
+    });
+ 
+ function darkmode() {
+if(!$("#darkcss").length) {
+$('head').append('<link id="darkcss" rel="stylesheet" href="https://cdn.jkdesu.com/assets2/css/dark.css?=v3.12" type="text/css" />');
+darkmode();
+}
+}
+if(leer_cookie("darkmode")) {
+darkmode();
+}
+</script>
+
+
+            <style type="text/css">
+                .fb_iframe_widget iframe {
+                    position: relative !important;
+                }
+            </style>
+            	
+    <style>
+    b.red {
+    color: #ff7600;
+    }
+
+    </style>
+                                        
+
+                                
+    </head>
+    <body>
+        <div id="modal"></div>
+    
+     <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <a href="page.html">
+                            <img src="/img/logo2.png" widgth="120" height="60" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                   <div class="header__nav">
+                        <nav class="header__menu mobile-menu">
+                            <ul class="addmenu">
+                                <li class="active"><a href="/">Inicio</a></li>
+                                <li class="active"><a href="/directorio/">Directorio</a></li>
+                                <li class="active"><a href="/horario/">Horario</a></li>
+                                <li class="active"><a href="/top/">Top</a></li>
+                                <li class="active hentai tip"><a href="https://hentaijk.com/" target="_blank">Hentai <span>+18</span></a></li>
+                                
+                            </ul>
+                        </nav>
+						
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="header__right">
+					
+						
+						
+						<form role="search" autocomplete="off" id="form_search_ajax" class="form_search2" action="/buscar/q/" method="get">
+                             
+                                <input type="search" id="buscanime" class="buscanime solopc" name="q" class="form_control" rel="Buscar Anime" placeholder="Buscar Anime..." value="" required/>
+                                
+<button class="buton-form solopc" id="btn_qsubmit" type="submit"><i class="search"></i></button>
+									<div style="display: none;" id="search_results"><div id="qloader" class="lds-ellipsis"><div></div><div></div><div></div><div></div></div></div>							
+                            </form>
+                            
+					<b class="screen-overlay"></b>
+					<button data-trigger="#navbar_main" class="d-lg-none btn btn-light navbar-light" type="button">  <span class="navbar-toggler-icon"></span></button>
+					
+							<button class="usr-menu entrar" type="submit"><i class="fa not fa-user-circle"></i></button>	
+							<ul style="display: none;" id="authmenu">
+							<div id="usrinfo"><a class="ed" href="/perfil/editar">Editar perfil</a></div>
+							<hr>
+							<li class="auth"><a href="/perfil">Mi perfil</a></li>
+							<li class="auth"><a href="/guardado">Guardado</a></li>
+							<li class="auth"><a class="logdom salir" href="/salir">Salir</a></li>
+							</ul>
+
+						<nav id="navbar_main" class="solomovil mobile-offcanvas navbar navbar-expand-lg navbar-dark bg-primary">
+						  <div class="offcanvas-header">  
+							<form role="search" id="form_search_ajax" class="form_search2 mob" action="/buscar/q/" method="get">
+                             
+                                <input type="search" id="buscanime" class="buscanime" name="q" class="form_control" rel="Buscar Anime" placeholder="Buscar Anime..." value="" required/>
+                                
+<button class="buton-form" id="btn_qsubmit" type="submit"><i class="search"></i></button>
+											
+											<div style="display: none;" class="mob" id="search_results"><div id="qloader" class="lds-ellipsis"><div></div><div></div><div></div><div></div></div></div>				
+																
+                            </form>
+						  </div>
+						  
+					
+
+					
+						</nav>
+						                    	
+
+                    </div>
+                    
+
+                </div>
+                
+
+
+
+		
+            </div>
+			
+	
+
+
+			
+			
+        </div>
+
+                       </header> 
+                    
+     <section class="solopc" style="display: none;">
+	
+        <div class="menupc">
+		<div class="row">
+		<div class="letras-box addmenu">
+                        <ul>
+                            <li><a class="letra-link" href="/letra/A/" rel="nofollow">A</a></li>
+                            <li><a class="letra-link" href="/letra/B/" rel="nofollow">B</a></li>
+                            <li><a class="letra-link" href="/letra/C/" rel="nofollow">C</a></li>
+                            <li><a class="letra-link" href="/letra/D/" rel="nofollow">D</a></li>
+                            <li><a class="letra-link" href="/letra/E/" rel="nofollow">E</a></li>
+                            <li><a class="letra-link" href="/letra/F/" rel="nofollow">F</a></li>
+                            <li><a class="letra-link" href="/letra/G/" rel="nofollow">G</a></li>
+                            <li><a class="letra-link" href="/letra/H/" rel="nofollow">H</a></li>
+                            <li><a class="letra-link" href="/letra/I/" rel="nofollow">I</a></li>
+                            <li><a class="letra-link" href="/letra/J/" rel="nofollow">J</a></li>
+                            <li><a class="letra-link" href="/letra/K/" rel="nofollow">K</a></li>
+                            <li><a class="letra-link" href="/letra/L/" rel="nofollow">L</a></li>
+                            <li><a class="letra-link" href="/letra/M/" rel="nofollow">M</a></li>
+                            <li><a class="letra-link" href="/letra/N/" rel="nofollow">N</a></li>
+                            <li><a class="letra-link" href="/letra/O/" rel="nofollow">O</a></li>
+                            <li><a class="letra-link" href="/letra/P/" rel="nofollow">P</a></li>
+                            <li><a class="letra-link" href="/letra/Q/" rel="nofollow">Q</a></li>
+                            <li><a class="letra-link" href="/letra/R/" rel="nofollow">R</a></li>
+                            <li><a class="letra-link" href="/letra/S/" rel="nofollow">S</a></li>
+                            <li><a class="letra-link" href="/letra/T/" rel="nofollow">T</a></li>
+                            <li><a class="letra-link" href="/letra/U/" rel="nofollow">U</a></li>
+                            <li><a class="letra-link" href="/letra/V/" rel="nofollow">V</a></li>
+                            <li><a class="letra-link" href="/letra/W/" rel="nofollow">W</a></li>
+                            <li><a class="letra-link" href="/letra/X/" rel="nofollow">X</a></li>
+                            <li><a class="letra-link" href="/letra/Y/" rel="nofollow">Y</a></li>
+                            <li><a class="letra-link" href="/letra/Z/" rel="nofollow">Z</a></li>
+                            <li><a class="letra-link" href="/letra/0-9/" rel="nofollow">0-9</a></li>
+                            <li class="box-link tp"><a href="#tipoint" rel="nofollow">Por Tipo ↓</a></li>
+                            <li class="box-link lt"><a href="#letrasint" rel="nofollow">Por Genero ↓</a></li>
+                        </ul>
+                    </div>
+		</div>
+
+
+ 
+					
+					<div class="type-list addmenu">
+                        <h3>Animes por Tipo:</h3>
+                        <ul>
+                           <li><a href="/tipo/ova/" title="Ovas de anime">Ovas</a></li>
+                            <li><a href="/tipo/pelicula/" title="Peliculas de anime">Peliculas</a></li>
+
+                        </ul>
+                    </div>
+					
+					<div class="genre-list addmenu">
+									
+						<h3>Animes por Idioma:</h3>
+                        <ul>
+                            <li><a href="/genero/latino/">Español latino</a></li>
+                        </ul><br><br><br>
+                        
+                        
+                        <h3>Animes por Genero:</h3>
+                        <ul>
+                          <li><a href="/genero/accion/" title="Animes de Accion">Accion</a></li>
+                            <li><a href="/genero/artes-marciales/" title="Animes de Artes Marciales">Artes Marciales</a></li>
+                            <li><a href="/genero/autos/" title="Animes de Autos">Autos</a></li>
+                            <li><a href="/genero/aventura/" title="Animes de Aventura">Aventura</a></li>
+                            <li><a href="/genero/colegial/" title="Animes de Colegial">Colegial</a></li>
+                            <li><a href="/genero/comedia/" title="Animes de Comedia">Comedia</a></li>
+                            <li><a href="/genero/cosas-de-la-vida/" title="Animes de Cosas de la vida">Cosas de la vida</a></li>
+                            <li><a href="/genero/dementia/" title="Animes de Dementia">Dementia</a></li>
+                            <li><a href="/genero/demonios/" title="Animes de Demonios">Demonios</a></li>
+                            <li><a href="/genero/deportes/" title="Animes de Deportes">Deportes</a></li>
+                            <li><a href="/genero/drama/" title="Animes de Drama">Drama</a></li>
+                            <li><a href="/genero/ecchi/" title="Animes de Ecchi">Ecchi</a></li>
+                            <li><a href="/genero/fantasa/" title="Animes de Fantasia">Fantasia</a></li>
+                            <li><a href="/genero/harem/" title="Animes de Harem">Harem</a></li>
+                            <li><a href="/genero/historico/" title="Animes de Historico">Historico</a></li>
+                            <li><a href="/genero/josei/" title="Animes de Josei">Josei</a></li>
+                            <li><a href="/genero/juegos/" title="Animes de Juegos">Juegos</a></li>
+                            <li><a href="/genero/magia/" title="Animes de Magia">Magia</a></li>
+                            <li><a href="/genero/mecha/" title="Animes de Mecha">Mecha</a></li>
+                            <li><a href="/genero/militar/" title="Animes de Militar">Militar</a></li>
+                            <li><a href="/genero/misterio/" title="Animes de Misterio">Misterio</a></li>
+                            <li><a href="/genero/musica/" title="Animes de Musica">Musica</a></li>
+                            <li><a href="/genero/nios/" title="Animes de Niños">Niños</a></li>
+                            <li><a href="/genero/parodia/" title="Animes de Parodia">Parodia</a></li>
+                            <li><a href="/genero/policial/" title="Animes de Policial">Policial</a></li>
+                            <li><a href="/genero/psicologico/" title="Animes de Psicologico">Psicologico</a></li>
+                            <li><a href="/genero/romance/" title="Animes de Romance">Romance</a></li>
+                            <li><a href="/genero/samurai/" title="Animes de Samurai">Samurai</a></li>
+                            <li><a href="/genero/sci-fi/" title="Animes de Sci-fi">Sci-fi</a></li>
+                            <li><a href="/genero/seinen/" title="Animes de Seinen">Seinen</a></li>
+                            <li><a href="/genero/shoujo/" title="Animes de Shoujo">Shoujo</a></li>
+                            <li><a href="/genero/shoujo-ai/" title="Animes de Shoujo ai">Shoujo ai</a></li>
+                            <li><a href="/genero/shounen/" title="Animes de Shounen">Shounen</a></li>
+                            <li><a href="/genero/shounen-ai/" title="Animes de Shounen ai">Shounen ai</a></li>
+                            <li><a href="/genero/sobrenatural/" title="Animes de Sobrenatural">Sobrenatural</a></li>
+                            <li><a href="/genero/space/" title="Animes de Space">Space</a></li>
+                            <li><a href="/genero/super-poderes/" title="Animes de Super poderes">Super poderes</a></li>
+                            <li><a href="/genero/terror/" title="Animes de Terror">Terror</a></li>
+                            <li><a href="/genero/thriller/" title="Animes de Thriller">Thriller</a></li>
+                            <li><a href="/genero/vampiros/" title="Animes de Vampiros">Vampiros</a></li>
+                            <li><a href="/genero/yaoi/" title="Animes de Yaoi">Yaoi</a></li>
+                            <li><a href="/genero/yuri/" title="Animes de Yuri">Yuri</a></li>
+                        </ul>
+                    </div>
+
+                    
+                    
+	</div>    
+                    
+	</section>
+	
+
+         
+
+       
+                
+<section class="destacados guardados spad" style="display: none;">
+		<div class="container">
+
+
+					<div class="section-title init">
+						<h4>Continuar viendo...</h4>
+						
+					<div class="init_select"><select id="guardados_orden">
+					<option value="1">Orden Personalizado</option>
+					<option value="2">Recientes</option>
+                </select>
+                
+                <a class="see_all btn btn-primary" id="mas_recientes" href="/guardado">Ver todo</a>
+				</div>
+			
+				
+			</div>
+			
+			
+			<div id="recientes_div">
+			<div class="row recientes_div"></div>
+			<div id="loader"><div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div></div>
+			<div id="loadbtn"><div id="loadmore" style="display: none;" data-tipo="recientes">Mostrar más</div></div>
+			</div>
+			
+		
+	
+		</div>
+	</section>
+	
+<section class="hero">
+        <div class="container">
+        
+			<div class="row">
+		
+			<div class="col-lg-8">
+			
+        <div class="hero__slider owl-carousel">
+        
+                       
+                   
+                <div class="hero__items set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/video/image/jkvideo_1b02192e8ea581ba1fc7e26feb242bb5.jpg">
+                    <div class="row">
+                        <div class="col-lg-10">
+                            <div class="hero__text">
+
+                                <h2>Chainsaw Man</h2>
+
+                                <a href="https://jkanime.net/chainsaw-man/6/"><span>Ver ahora</span> <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                 
+                   
+                <div class="hero__items set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/video/image/jkvideo_60b9675650df4bf314fb89c0c993aeea.jpg">
+                    <div class="row">
+                        <div class="col-lg-10">
+                            <div class="hero__text">
+
+                                <h2>Bleach: Sennen Kessen-hen</h2>
+
+                                <a href="https://jkanime.net/bleach-sennen-kessen-hen/6/"><span>Ver ahora</span> <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                 
+                   
+                <div class="hero__items set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/video/image/jkvideo_fc2b864290f28de5008e521ae87ba5c2.jpg">
+                    <div class="row">
+                        <div class="col-lg-10">
+                            <div class="hero__text">
+
+                                <h2>Boruto: Naruto Next Generations</h2>
+
+                                <a href="https://jkanime.net/boruto-naruto-next-generations/275/"><span>Ver ahora</span> <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                 
+                   
+                <div class="hero__items set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/video/image/jkvideo_e1ec1fb0d9e5f26ca9a5bff548afe894.jpg">
+                    <div class="row">
+                        <div class="col-lg-10">
+                            <div class="hero__text">
+
+                                <h2>Spy x Family Part 2</h2>
+
+                                <a href="https://jkanime.net/spy-x-family-part-2/7/"><span>Ver ahora</span> <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                 
+                   
+                <div class="hero__items set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/video/image/jkvideo_e18d4a3cb0daaaf718517cd8b7aec994.jpg">
+                    <div class="row">
+                        <div class="col-lg-10">
+                            <div class="hero__text">
+
+                                <h2>Boku no Hero Academia 6th Season</h2>
+
+                                <a href="https://jkanime.net/boku-no-hero-academia-6th-season/7/"><span>Ver ahora</span> <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                 
+                   
+                <div class="hero__items set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/video/image/jkvideo_1000be0e0889d0972919d303988e2944.jpg">
+                    <div class="row">
+                        <div class="col-lg-10">
+                            <div class="hero__text">
+
+                                <h2>Chainsaw Man</h2>
+
+                                <a href="https://jkanime.net/chainsaw-man/5/"><span>Ver ahora</span> <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                 
+                   
+                <div class="hero__items set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/video/image/jkvideo_fbbb2627670a4878b4dc15bc1a22ec4f.jpg">
+                    <div class="row">
+                        <div class="col-lg-10">
+                            <div class="hero__text">
+
+                                <h2>Bleach: Sennen Kessen-hen</h2>
+
+                                <a href="https://jkanime.net/bleach-sennen-kessen-hen/5/"><span>Ver ahora</span> <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                 
+                   
+                <div class="hero__items set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/video/image/jkvideo_5ace8cbe0e628a8fbe431156690490e7.jpg">
+                    <div class="row">
+                        <div class="col-lg-10">
+                            <div class="hero__text">
+
+                                <h2>Boruto: Naruto Next Generations</h2>
+
+                                <a href="https://jkanime.net/boruto-naruto-next-generations/274/"><span>Ver ahora</span> <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                 
+                   
+                <div class="hero__items set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/video/image/jkvideo_5728d638256d7eb8cfea765d7b34fe98.jpg">
+                    <div class="row">
+                        <div class="col-lg-10">
+                            <div class="hero__text">
+
+                                <h2>Spy x Family Part 2</h2>
+
+                                <a href="https://jkanime.net/spy-x-family-part-2/6/"><span>Ver ahora</span> <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                   
+            </div>
+			
+			<div class="solopc">
+			
+			<div class="row">
+			<div class="col-12  pt-3">
+				<div class="section-title tituloblanco">
+					<h4>OVAS / ONAS / ESPECIALES</h4>
+				</div>
+			</div>
+			
+
+			
+			
+			
+			   <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+				<div class="anime__item">
+					<a href="https://jkanime.net/ginga-eiyuu-densetsu-die-neue-these-sakubou/8/"><div class="anime__item__pic homemini set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/ginga-eiyuu-densetsu-die-neue-these-sakubou.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/ginga-eiyuu-densetsu-die-neue-these-sakubou.jpg&quot;);">
+					<div class="anime__item__text">
+						<ul>
+							<li class="peli">  Pelicula
+                                                                                                     8                                 </li>
+						</ul>
+					</div>
+					  
+					</div></a>
+					<div class="anime__item__text tituloblanco">
+						<h5><a href="https://jkanime.net/ginga-eiyuu-densetsu-die-neue-these-sakubou/8/">Ginga Eiyuu Densetsu: Die Neue These - Sakubou</a></h5>
+					</div>
+				</div></div>
+				              <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+				<div class="anime__item">
+					<a href="https://jkanime.net/karakai-jouzu-no-takagi-san-movie/"><div class="anime__item__pic homemini set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/karakai-jouzu-no-takagi-san-movie.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/karakai-jouzu-no-takagi-san-movie.jpg&quot;);">
+					<div class="anime__item__text">
+						<ul>
+							<li class="peli">  Pelicula
+                                                                </li>
+						</ul>
+					</div>
+					  
+					</div></a>
+					<div class="anime__item__text tituloblanco">
+						<h5><a href="https://jkanime.net/karakai-jouzu-no-takagi-san-movie/">Karakai Jouzu no Takagi-san Movie</a></h5>
+					</div>
+				</div></div>
+				              <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+				<div class="anime__item">
+					<a href="https://jkanime.net/the-daily-life-of-the-inmortal-king-3nd-season/8/"><div class="anime__item__pic homemini set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/the-daily-life-of-the-inmortal-king-3nd-season.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/the-daily-life-of-the-inmortal-king-3nd-season.jpg&quot;);">
+					<div class="anime__item__text">
+						<ul>
+							<li class="peli">  ONA
+                                                                                                     8                                 </li>
+						</ul>
+					</div>
+					  
+					</div></a>
+					<div class="anime__item__text tituloblanco">
+						<h5><a href="https://jkanime.net/the-daily-life-of-the-inmortal-king-3nd-season/8/">The Daily Life of the Immortal King 3</a></h5>
+					</div>
+				</div></div>
+				              <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+				<div class="anime__item">
+					<a href="https://jkanime.net/one-piece-film-red/"><div class="anime__item__pic homemini set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/one-piece-film-red.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/one-piece-film-red.jpg&quot;);">
+					<div class="anime__item__text">
+						<ul>
+							<li class="peli">  Pelicula
+                                                                </li>
+						</ul>
+					</div>
+					  
+					</div></a>
+					<div class="anime__item__text tituloblanco">
+						<h5><a href="https://jkanime.net/one-piece-film-red/">One Piece Film: Red</a></h5>
+					</div>
+				</div></div>
+				              <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+				<div class="anime__item">
+					<a href="https://jkanime.net/ginga-eiyuu-densetsu-die-neue-these-sakubou/7/"><div class="anime__item__pic homemini set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/ginga-eiyuu-densetsu-die-neue-these-sakubou.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/ginga-eiyuu-densetsu-die-neue-these-sakubou.jpg&quot;);">
+					<div class="anime__item__text">
+						<ul>
+							<li class="peli">  Pelicula
+                                                                                                     7                                 </li>
+						</ul>
+					</div>
+					  
+					</div></a>
+					<div class="anime__item__text tituloblanco">
+						<h5><a href="https://jkanime.net/ginga-eiyuu-densetsu-die-neue-these-sakubou/7/">Ginga Eiyuu Densetsu: Die Neue These - Sakubou</a></h5>
+					</div>
+				</div></div>
+				              <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+				<div class="anime__item">
+					<a href="https://jkanime.net/the-daily-life-of-the-inmortal-king-3nd-season/7/"><div class="anime__item__pic homemini set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/the-daily-life-of-the-inmortal-king-3nd-season.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/the-daily-life-of-the-inmortal-king-3nd-season.jpg&quot;);">
+					<div class="anime__item__text">
+						<ul>
+							<li class="peli">  ONA
+                                                                                                     7                                 </li>
+						</ul>
+					</div>
+					  
+					</div></a>
+					<div class="anime__item__text tituloblanco">
+						<h5><a href="https://jkanime.net/the-daily-life-of-the-inmortal-king-3nd-season/7/">The Daily Life of the Immortal King 3</a></h5>
+					</div>
+				</div></div>
+				              <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+				<div class="anime__item">
+					<a href="https://jkanime.net/5-toubun-no-hanayome-movie/"><div class="anime__item__pic homemini set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/5-toubun-no-hanayome-movie.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/5-toubun-no-hanayome-movie.jpg&quot;);">
+					<div class="anime__item__text">
+						<ul>
+							<li class="peli">  Pelicula
+                                                                </li>
+						</ul>
+					</div>
+					  
+					</div></a>
+					<div class="anime__item__text tituloblanco">
+						<h5><a href="https://jkanime.net/5-toubun-no-hanayome-movie/">5-toubun no Hanayome Movie</a></h5>
+					</div>
+				</div></div>
+				              <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+				<div class="anime__item">
+					<a href="https://jkanime.net/ginga-eiyuu-densetsu-die-neue-these-sakubou/6/"><div class="anime__item__pic homemini set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/ginga-eiyuu-densetsu-die-neue-these-sakubou.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/ginga-eiyuu-densetsu-die-neue-these-sakubou.jpg&quot;);">
+					<div class="anime__item__text">
+						<ul>
+							<li class="peli">  Pelicula
+                                                                                                     6                                 </li>
+						</ul>
+					</div>
+					  
+					</div></a>
+					<div class="anime__item__text tituloblanco">
+						<h5><a href="https://jkanime.net/ginga-eiyuu-densetsu-die-neue-these-sakubou/6/">Ginga Eiyuu Densetsu: Die Neue These - Sakubou</a></h5>
+					</div>
+				</div></div>
+				              				              
+			
+			
+			
+			</div>
+			
+			</div>
+			
+			</div>
+			
+			<div class="col-lg-4 pt-3">
+				<div class="random"><a title="Anime Aleatorio" href="/aleatorio/"><i class="fa fa-magic" aria-hidden="true"></i></a></div>
+				
+				<label class="switchBtn">
+    <input type="checkbox" id="darkswitch">
+    <div class="slidebtn">Modo noche</div>
+</label>
+			<div class="anime__sidebar__comment">
+
+				<div class="section-title tituloblanco">
+					<h5>Programación</h5>
+				</div>
+				<div class="listadoanime-home">
+					<div class="maximoaltura">
+                        
+                                                 		<a href="https://jkanime.net/ginga-eiyuu-densetsu-die-neue-these-sakubou/8/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/ginga-eiyuu-densetsu-die-neue-these-sakubou.jpg"  title="Ginga Eiyuu Densetsu: Die Neue These - Sakubou" alt="Ginga Eiyuu Densetsu: Die Neue These - Sakubou">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>Ginga Eiyuu Densetsu: Die Neue These - Sakubou</h5>
+								<h6>  Pelicula
+                                                                                                                             8                                         </h6>
+								<span>                                                  Ayer
+                                                                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/karakai-jouzu-no-takagi-san-movie/pelicula/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/karakai-jouzu-no-takagi-san-movie.jpg"  title="Karakai Jouzu no Takagi-san Movie" alt="Karakai Jouzu no Takagi-san Movie">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>Karakai Jouzu no Takagi-san Movie</h5>
+								<h6>  Pelicula
+                                                                                </h6>
+								<span>                                                  Ayer
+                                                                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/urusei-yatsura-2022/6/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/urusei-yatsura-2022.jpg"  title="Urusei Yatsura (2022)" alt="Urusei Yatsura (2022)">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>Urusei Yatsura (2022)</h5>
+								<h6>  Episodio
+                                                                                                                             6                                         </h6>
+								<span>                                                  Ayer
+                                                                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/akiba-maid-sensou/7/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/akiba-maid-sensou.jpg"  title="Akiba Maid Sensou" alt="Akiba Maid Sensou">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>Akiba Maid Sensou</h5>
+								<h6>  Episodio
+                                                                                                                             7                                         </h6>
+								<span>                                                  Ayer
+                                                                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/kancolle-itsuka-ano-umi-de/3/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/kancolle-itsuka-ano-umi-de.jpg"  title="KanColle: Itsuka Ano Umi de" alt="KanColle: Itsuka Ano Umi de">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>KanColle: Itsuka Ano Umi de</h5>
+								<h6>  Episodio
+                                                                                                                             3                                         </h6>
+								<span>                                                  Ayer
+                                                                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/aru-asa-dummy-head-mic-ni-natteita-ore-kun-no-jinsei/6/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/aru-asa-dummy-head-mic-ni-natteita-ore-kun-no-jinsei.jpg"  title="Aru Asa Dummy Head Mic ni Natteita Ore-kun no Jinsei" alt="Aru Asa Dummy Head Mic ni Natteita Ore-kun no Jinsei">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>Aru Asa Dummy Head Mic ni Natteita Ore-kun no Jinsei</h5>
+								<h6>  Episodio
+                                                                                                                             6                                         </h6>
+								<span>                                                  Ayer
+                                                                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/mushikaburi-hime/7/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/mushikaburi-hime.jpg"  title="Mushikaburi-hime" alt="Mushikaburi-hime">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>Mushikaburi-hime</h5>
+								<h6>  Episodio
+                                                                                                                             7                                         </h6>
+								<span>                                                  Ayer
+                                                                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/muv-luv-alternative-2nd-season/7/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/muv-luv-alternative-2nd-season.jpg"  title="Muv-Luv Alternative 2nd Season" alt="Muv-Luv Alternative 2nd Season">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>Muv-Luv Alternative 2nd Season</h5>
+								<h6>  Episodio
+                                                                                                                             7                                         </h6>
+								<span>                                                  Ayer
+                                                                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/do-it-yourself/7/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/do-it-yourself.jpg"  title="Do It Yourself!!" alt="Do It Yourself!!">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>Do It Yourself!!</h5>
+								<h6>  Episodio
+                                                                                                                             7                                         </h6>
+								<span>                                                  Ayer
+                                                                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/futoku-no-guild/7/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/futoku-no-guild.jpg"  title="Futoku no Guild" alt="Futoku no Guild">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>Futoku no Guild</h5>
+								<h6>  Episodio
+                                                                                                                             7                                         </h6>
+								<span>                                                  16/11
+                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/tensei-shitara-ken-deshita/8/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/tensei-shitara-ken-deshita.jpg"  title="Tensei shitara Ken Deshita" alt="Tensei shitara Ken Deshita">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>Tensei shitara Ken Deshita</h5>
+								<h6>  Episodio
+                                                                                                                             8                                         </h6>
+								<span>                                                  16/11
+                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/renai-flops/6/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/renai-flops.jpg"  title="Renai Flops" alt="Renai Flops">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>Renai Flops</h5>
+								<h6>  Episodio
+                                                                                                                             6                                         </h6>
+								<span>                                                  16/11
+                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/kage-no-jitsuryokusha-ni-naritakute/7/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/kage-no-jitsuryokusha-ni-naritakute.jpg"  title="Kage no Jitsuryokusha ni Naritakute!" alt="Kage no Jitsuryokusha ni Naritakute!">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>Kage no Jitsuryokusha ni Naritakute!</h5>
+								<h6>  Episodio
+                                                                                                                             7                                         </h6>
+								<span>                                                  16/11
+                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/mob-psycho-100-iii/7/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/mob-psycho-100-iii.jpg"  title="Mob Psycho 100 III" alt="Mob Psycho 100 III">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>Mob Psycho 100 III</h5>
+								<h6>  Episodio
+                                                                                                                             7                                         </h6>
+								<span>                                                  16/11
+                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/human-bug-daigaku/7/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/human-bug-daigaku.jpg"  title="Human Bug Daigaku" alt="Human Bug Daigaku">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>Human Bug Daigaku</h5>
+								<h6>  Episodio
+                                                                                                                             7                                         </h6>
+								<span>                                                  16/11
+                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/meitantei-conan-hannin-no-hanzawa-san/7/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/meitantei-conan-hannin-no-hanzawa-san.jpg"  title="Meitantei Conan: Hannin no Hanzawa-san" alt="Meitantei Conan: Hannin no Hanzawa-san">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>Meitantei Conan: Hannin no Hanzawa-san</h5>
+								<h6>  Episodio
+                                                                                                                             7                                         </h6>
+								<span>                                                  16/11
+                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/chainsaw-man/6/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/chainsaw-man.jpg"  title="Chainsaw Man" alt="Chainsaw Man">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>Chainsaw Man</h5>
+								<h6>  Episodio
+                                                                                                                             6                                         </h6>
+								<span>                                                  15/11
+                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/yama-no-susume-next-summit/7/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/yama-no-susume-next-summit.jpg"  title="Yama no Susume: Next Summit" alt="Yama no Susume: Next Summit">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>Yama no Susume: Next Summit</h5>
+								<h6>  Episodio
+                                                                                                                             7                                         </h6>
+								<span>                                                  15/11
+                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/vazzrock-the-animation/7/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/vazzrock-the-animation.jpg"  title="Vazzrock The Animation" alt="Vazzrock The Animation">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>Vazzrock The Animation</h5>
+								<h6>  Episodio
+                                                                                                                             7                                         </h6>
+								<span>                                                  15/11
+                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/shinobi-no-ittoki/7/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/shinobi-no-ittoki.jpg"  title="Shinobi no Ittoki" alt="Shinobi no Ittoki">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>Shinobi no Ittoki</h5>
+								<h6>  Episodio
+                                                                                                                             7                                         </h6>
+								<span>                                                  15/11
+                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/cool-doji-danshi/6/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/cool-doji-danshi.jpg"  title="Cool Doji Danshi" alt="Cool Doji Danshi">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>Cool Doji Danshi</h5>
+								<h6>  Episodio
+                                                                                                                             6                                         </h6>
+								<span>                                                  14/11
+                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/eternal-boys/8/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/eternal-boys.jpg"  title="Eternal Boys" alt="Eternal Boys">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>Eternal Boys</h5>
+								<h6>  Episodio
+                                                                                                                             8                                         </h6>
+								<span>                                                  14/11
+                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/eternal-boys/1/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/eternal-boys.jpg"  title="Eternal Boys" alt="Eternal Boys">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>Eternal Boys</h5>
+								<h6>  Episodio
+                                                                                                                             1                                         </h6>
+								<span>                                                  14/11
+                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/bleach-sennen-kessen-hen/6/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/bleach-sennen-kessen-hen.jpg"  title="Bleach: Sennen Kessen-hen" alt="Bleach: Sennen Kessen-hen">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>Bleach: Sennen Kessen-hen</h5>
+								<h6>  Episodio
+                                                                                                                             6                                         </h6>
+								<span>                                                  14/11
+                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/shinmai-renkinjutsushi-no-tenpo-keiei/7/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/shinmai-renkinjutsushi-no-tenpo-keiei.jpg"  title="Shinmai Renkinjutsushi no Tenpo Keiei" alt="Shinmai Renkinjutsushi no Tenpo Keiei">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>Shinmai Renkinjutsushi no Tenpo Keiei</h5>
+								<h6>  Episodio
+                                                                                                                             7                                         </h6>
+								<span>                                                  14/11
+                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/the-daily-life-of-the-inmortal-king-3nd-season/8/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/the-daily-life-of-the-inmortal-king-3nd-season.jpg"  title="The Daily Life of the Immortal King 3" alt="The Daily Life of the Immortal King 3">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>The Daily Life of the Immortal King 3</h5>
+								<h6>  ONA
+                                                                                                                             8                                         </h6>
+								<span>                                                  14/11
+                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/one-piece-film-red/pelicula/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/one-piece-film-red.jpg"  title="One Piece Film: Red" alt="One Piece Film: Red">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>One Piece Film: Red</h5>
+								<h6>  Pelicula
+                                                                                </h6>
+								<span>                                                  14/11
+                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/peter-grill-to-kenja-no-jikan-super-extra/6/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/peter-grill-to-kenja-no-jikan-super-extra.jpg"  title="Peter Grill to Kenja no Jikan: Super Extra" alt="Peter Grill to Kenja no Jikan: Super Extra">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>Peter Grill to Kenja no Jikan: Super Extra</h5>
+								<h6>  Episodio
+                                                                                                                             6                                         </h6>
+								<span>                                                  13/11
+                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/4-nin-wa-sorezore-uso-wo-tsuku/5/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/4-nin-wa-sorezore-uso-wo-tsuku.jpg"  title="4-nin wa Sorezore Uso wo Tsuku" alt="4-nin wa Sorezore Uso wo Tsuku">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>4-nin wa Sorezore Uso wo Tsuku</h5>
+								<h6>  Episodio
+                                                                                                                             5                                         </h6>
+								<span>                                                  13/11
+                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+						                        		<a href="https://jkanime.net/idolish7-third-beat-part-2/7/" class="bloqq"><div class="anime__sidebar__comment__item">
+							<div class="anime__sidebar__comment__item__pic listadohome">
+								<img src="https://cdn.jkdesu.com/assets/images/animes/image/idolish7-third-beat-part-2.jpg"  title="IDOLiSH7: Third Beat! Part 2" alt="IDOLiSH7: Third Beat! Part 2">
+							</div>
+							<div class="anime__sidebar__comment__item__text">
+								<h5>IDOLiSH7: Third Beat! Part 2</h5>
+								<h6>  Episodio
+                                                                                                                             7                                         </h6>
+								<span>                                                  13/11
+                                            </span>
+								<div class="flechaprogra" s=""><img src="https://cdn.jkdesu.com/assets2/css/img/flecha.png"></div>
+							</div>
+						</div></a>
+												
+						
+					</div>
+				</div>
+			</div>
+			</div>
+			
+			</div>
+        </div>
+    </section>
+    
+
+
+ <section class="destacados spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="section-title">
+						<h4>TOP ANIMES <b class="red"><i class="fas fa-clock-o"></i> actualiza en <span class="time" datetime="2022-11-18 07:45:23 UTC"></span></b></h4>
+					</div>
+				</div>
+			
+                <script>
+            function pad(d) {
+            return (d < 10) ? '0' + d.toString() : d.toString();
+            }
+            function contador() {
+            var startTime = new Date(); 
+            var endTime = new Date($(".time").attr("datetime").replace(/-/g,'/'));
+            var difference = endTime.getTime() - startTime.getTime();
+            var minutos_restantes = parseInt(Math.abs(endTime.getTime() - startTime.getTime()) / (1000 * 60) % 60);
+            var segundos_restantes = parseInt(Math.abs(endTime.getTime() - startTime.getTime()) / (1000) % 60);
+            $(".time").html(pad(minutos_restantes) + ":" + pad(segundos_restantes));
+            }
+            contador();
+            setInterval(contador,1000);
+            </script>
+					
+						
+                                                        <div class="col-lg-4">
+					<a href="https://jkanime.net/one-piece/" style="display: block;">
+						<div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/one-piece.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/one-piece.jpg&quot;);"><span class="vc"><i class="fa fa-thumbs-up" aria-hidden="true"></i> 44895</span>
+							<div class="ep">1</div>
+							<div class="comment">
+							<h5 class="tituloblanco">One Piece</h5>
+							</div>
+						</div>
+					</a>
+					 </div>
+                                                         			
+                                                         			
+                                                         			
+                                                         			
+                                                         			
+                                                         			
+                                                         			
+                                                         			
+                                                         			
+                                                                                      <div class="col-lg-8"><div class="row">
+								
+					    					
+										
+					    					 
+						 <div class="col-lg-4">					<a href="https://jkanime.net/shingeki-no-kyojin-the-final-season/" style="display: block;">
+						<div class="anime__item__pic__fila4 set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/shingeki-no-kyojin-the-final-season.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/shingeki-no-kyojin-the-final-season.jpg&quot;);"><span class="vc"><i class="fa fa-thumbs-up" aria-hidden="true"></i> 39653</span>
+							<div class="top3"> 2</div>
+							<div class="comment">
+							<h5 class="tituloblanco ">Shingeki no Kyojin: The Final Season</h5>
+							</div>
+						</div>
+					</a>
+				</div>
+				
+			
+						
+						
+										
+										
+					    					 
+						 <div class="col-lg-4">					<a href="https://jkanime.net/naruto-shippuden/" style="display: block;">
+						<div class="anime__item__pic__fila4 set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/naruto-shippuden.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/naruto-shippuden.jpg&quot;);"><span class="vc"><i class="fa fa-thumbs-up" aria-hidden="true"></i> 29661</span>
+							<div class="top3"> 3</div>
+							<div class="comment">
+							<h5 class="tituloblanco ">Naruto Shippuden</h5>
+							</div>
+						</div>
+					</a>
+				</div>
+				
+			
+						
+						
+										
+										
+					    					 
+						 <div class="col-lg-4">					<a href="https://jkanime.net/maou-gakuin-no-futekigousha-shijou-saikyou-no-maou-no-shiso-tensei-shite-shison-tachi-no-gakkou-e/" style="display: block;">
+						<div class="anime__item__pic__fila4 set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/maou-gakuin-no-futekigousha-shijou-saikyou-no-maou-no-shiso-tensei-shite-shison-tachi-no-gakkou-e.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/maou-gakuin-no-futekigousha-shijou-saikyou-no-maou-no-shiso-tensei-shite-shison-tachi-no-gakkou-e.jpg&quot;);"><span class="vc"><i class="fa fa-thumbs-up" aria-hidden="true"></i> 27104</span>
+							<div class="top3"> 4</div>
+							<div class="comment">
+							<h5 class="tituloblanco ">Maou Gakuin no Futekigousha</h5>
+							</div>
+						</div>
+					</a>
+				</div>
+				
+			
+						
+						
+										
+										
+					    					 
+						<div class="col-lg-2 col-6">					<a href="https://jkanime.net/black-clover-tv/" style="display: block;">
+						<div class="anime__item__pic__fila4 set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/black-clover-tv.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/black-clover-tv.jpg&quot;);"><span class="vc"><i class="fa fa-thumbs-up" aria-hidden="true"></i> 26912</span>
+							<div class="top6"> 5</div>
+							<div class="comment">
+							<h5 class="tituloblanco columnas6">Black Clover (TV)</h5>
+							</div>
+						</div>
+					</a>
+				</div>
+				
+			
+						
+						
+										
+										
+					    					 
+						<div class="col-lg-2 col-6">					<a href="https://jkanime.net/jujutsu-kaisen-tv/" style="display: block;">
+						<div class="anime__item__pic__fila4 set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/jujutsu-kaisen-tv.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/jujutsu-kaisen-tv.jpg&quot;);"><span class="vc"><i class="fa fa-thumbs-up" aria-hidden="true"></i> 23513</span>
+							<div class="top6"> 6</div>
+							<div class="comment">
+							<h5 class="tituloblanco columnas6">Jujutsu Kaisen (TV)</h5>
+							</div>
+						</div>
+					</a>
+				</div>
+				
+			
+						
+						
+										
+										
+					    					 
+						<div class="col-lg-2 col-6">					<a href="https://jkanime.net/kimetsu-no-yaiba/" style="display: block;">
+						<div class="anime__item__pic__fila4 set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/kimetsu-no-yaiba.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/kimetsu-no-yaiba.jpg&quot;);"><span class="vc"><i class="fa fa-thumbs-up" aria-hidden="true"></i> 21782</span>
+							<div class="top6"> 7</div>
+							<div class="comment">
+							<h5 class="tituloblanco columnas6">Kimetsu no Yaiba</h5>
+							</div>
+						</div>
+					</a>
+				</div>
+				
+			
+						
+						
+										
+										
+					    					 
+						<div class="col-lg-2 col-6">					<a href="https://jkanime.net/kanojo-okarishimasu/" style="display: block;">
+						<div class="anime__item__pic__fila4 set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/kanojo-okarishimasu.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/kanojo-okarishimasu.jpg&quot;);"><span class="vc"><i class="fa fa-thumbs-up" aria-hidden="true"></i> 20080</span>
+							<div class="top6"> 8</div>
+							<div class="comment">
+							<h5 class="tituloblanco columnas6">Kanojo, Okarishimasu</h5>
+							</div>
+						</div>
+					</a>
+				</div>
+				
+			
+						
+						
+										
+										
+					    					 
+						<div class="col-lg-2 col-6">					<a href="https://jkanime.net/tonikaku-kawaii/" style="display: block;">
+						<div class="anime__item__pic__fila4 set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/tonikaku-kawaii.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/tonikaku-kawaii.jpg&quot;);"><span class="vc"><i class="fa fa-thumbs-up" aria-hidden="true"></i> 16124</span>
+							<div class="top6"> 9</div>
+							<div class="comment">
+							<h5 class="tituloblanco columnas6">Tonikaku Kawaii</h5>
+							</div>
+						</div>
+					</a>
+				</div>
+				
+			
+						
+						
+										
+										
+					    					 
+						<div class="col-lg-2 col-6">					<a href="https://jkanime.net/sword-art-online-alicization-war-of-underworld-2nd-season/" style="display: block;">
+						<div class="anime__item__pic__fila4 set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/sword-art-online-alicization-war-of-underworld-2nd-season.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/sword-art-online-alicization-war-of-underworld-2nd-season.jpg&quot;);"><span class="vc"><i class="fa fa-thumbs-up" aria-hidden="true"></i> 15385</span>
+							<div class="top6"> 10</div>
+							<div class="comment">
+							<h5 class="tituloblanco columnas6">Sword Art Online: Alicization - War&amp;#8230;</h5>
+							</div>
+						</div>
+					</a>
+				</div>
+				
+			
+						
+						
+										
+						
+					</div>	</div>	
+					
+			
+				
+				
+				<div class="col-lg-12 text-center pt-3">
+						<h4><a href="/top">↓ Ver Lista Completa ↓</a></h4>
+				</div>
+				
+			</div>
+		</div>
+	</section>
+	
+    
+    <section class="contenido spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="trending__anime">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                <div class="section-title">
+                                    <h4>Últimos Animes agregados</h4>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <div class="btn__all">
+                             <!--       <a href="#" class="primary-btn">Ver todo <span class="arrow_right"></span></a> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+						
+                            
+                            
+			     
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/karakai-jouzu-no-takagi-san-movie/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/karakai-jouzu-no-takagi-san-movie.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/karakai-jouzu-no-takagi-san-movie.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>Concluido</li>
+                                            <li class="anime"> Pelicula
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/karakai-jouzu-no-takagi-san-movie/">Karakai Jouzu no Takagi-san Movie</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/one-piece-film-red/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/one-piece-film-red.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/one-piece-film-red.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>Concluido</li>
+                                            <li class="anime"> Pelicula
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/one-piece-film-red/">One Piece Film: Red</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/5-toubun-no-hanayome-movie/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/5-toubun-no-hanayome-movie.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/5-toubun-no-hanayome-movie.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>Concluido</li>
+                                            <li class="anime"> Pelicula
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/5-toubun-no-hanayome-movie/">5-toubun no Hanayome Movie</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/kachou-ouji/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/kachou-ouji.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/kachou-ouji.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>Concluido</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/kachou-ouji/">Kachou Ouji</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/arknights-reimei-zensou/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/arknights-reimei-zensou.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/arknights-reimei-zensou.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En emision</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/arknights-reimei-zensou/">Arknights: Reimei Zensou</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/bakemono-no-ko/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/bakemono-no-ko.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/bakemono-no-ko.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>Concluido</li>
+                                            <li class="anime"> Pelicula
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/bakemono-no-ko/">Bakemono no Ko</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/artiswitch/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/artiswitch.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/artiswitch.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>Concluido</li>
+                                            <li class="anime"> ONA
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/artiswitch/">Artiswitch</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/megaton-kyuu-musashi-2nd-season/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/megaton-kyuu-musashi-2nd-season.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/megaton-kyuu-musashi-2nd-season.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En emision</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/megaton-kyuu-musashi-2nd-season/">Megaton-kyuu Musashi 2nd Season</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/ginga-eiyuu-densetsu-die-neue-these-sakubou/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/ginga-eiyuu-densetsu-die-neue-these-sakubou.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/ginga-eiyuu-densetsu-die-neue-these-sakubou.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En emision</li>
+                                            <li class="anime"> Pelicula
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/ginga-eiyuu-densetsu-die-neue-these-sakubou/">Ginga Eiyuu Densetsu: Die Neue These - Sakubou</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/fruits-basket-prelude/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/fruits-basket-prelude.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/fruits-basket-prelude.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>Concluido</li>
+                                            <li class="anime"> Pelicula
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/fruits-basket-prelude/">Fruits Basket: Prelude</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/human-bug-daigaku/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/human-bug-daigaku.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/human-bug-daigaku.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En emision</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/human-bug-daigaku/">Human Bug Daigaku</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/yuukoku-no-moriarty-ova/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/yuukoku-no-moriarty-ova.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/yuukoku-no-moriarty-ova.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>Concluido</li>
+                                            <li class="anime"> OVA
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/yuukoku-no-moriarty-ova/">Yuukoku no Moriarty OVA</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/berserk-ougon-jidai-hen-memorial-edition/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/berserk-ougon-jidai-hen-memorial-edition.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/berserk-ougon-jidai-hen-memorial-edition.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En emision</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/berserk-ougon-jidai-hen-memorial-edition/">Berserk: Ougon Jidai-hen - Memorial Edition</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/the-daily-life-of-the-inmortal-king-3nd-season/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/the-daily-life-of-the-inmortal-king-3nd-season.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/the-daily-life-of-the-inmortal-king-3nd-season.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En emision</li>
+                                            <li class="anime"> ONA
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/the-daily-life-of-the-inmortal-king-3nd-season/">The Daily Life of the Immortal King 3</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/robomasters-the-animated-series/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/robomasters-the-animated-series.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/robomasters-the-animated-series.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>Concluido</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/robomasters-the-animated-series/">RoboMasters the Animated Series</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/meitantei-conan-hannin-no-hanzawa-san/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/meitantei-conan-hannin-no-hanzawa-san.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/meitantei-conan-hannin-no-hanzawa-san.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En emision</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/meitantei-conan-hannin-no-hanzawa-san/">Meitantei Conan: Hannin no Hanzawa-san</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/romantic-killer/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/romantic-killer.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/romantic-killer.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>Concluido</li>
+                                            <li class="anime"> ONA
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/romantic-killer/">Romantic Killer</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/vazzrock-the-animation/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/vazzrock-the-animation.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/vazzrock-the-animation.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En emision</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/vazzrock-the-animation/">Vazzrock The Animation</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/c-danchi/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/c-danchi.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/c-danchi.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En espera</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/c-danchi/">C Danchi</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/akiba-maid-sensou/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/akiba-maid-sensou.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/akiba-maid-sensou.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En emision</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/akiba-maid-sensou/">Akiba Maid Sensou</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/aru-asa-dummy-head-mic-ni-natteita-ore-kun-no-jinsei/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/aru-asa-dummy-head-mic-ni-natteita-ore-kun-no-jinsei.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/aru-asa-dummy-head-mic-ni-natteita-ore-kun-no-jinsei.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En emision</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/aru-asa-dummy-head-mic-ni-natteita-ore-kun-no-jinsei/">Aru Asa Dummy Head Mic ni Natteita Ore-kun no Jinsei</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/eternal-boys/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/eternal-boys.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/eternal-boys.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En emision</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/eternal-boys/">Eternal Boys</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/seiken-densetsu-legend-of-mana-the-teardrop-crystal/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/seiken-densetsu-legend-of-mana-the-teardrop-crystal.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/seiken-densetsu-legend-of-mana-the-teardrop-crystal.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En emision</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/seiken-densetsu-legend-of-mana-the-teardrop-crystal/">Seiken Densetsu: Legend of Mana - The Teardrop Crystal</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/4-nin-wa-sorezore-uso-wo-tsuku/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/4-nin-wa-sorezore-uso-wo-tsuku.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/4-nin-wa-sorezore-uso-wo-tsuku.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En emision</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/4-nin-wa-sorezore-uso-wo-tsuku/">4-nin wa Sorezore Uso wo Tsuku</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/uchi-no-shishou-wa-shippo-ga-nai/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/uchi-no-shishou-wa-shippo-ga-nai.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/uchi-no-shishou-wa-shippo-ga-nai.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En emision</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/uchi-no-shishou-wa-shippo-ga-nai/">Uchi no Shishou wa Shippo ga Nai</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/futoku-no-guild/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/futoku-no-guild.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/futoku-no-guild.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En emision</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/futoku-no-guild/">Futoku no Guild</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/renai-flops/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/renai-flops.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/renai-flops.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En emision</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/renai-flops/">Renai Flops</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/cool-doji-danshi/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/cool-doji-danshi.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/cool-doji-danshi.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En emision</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/cool-doji-danshi/">Cool Doji Danshi</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/bocchi-the-rock/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/bocchi-the-rock.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/bocchi-the-rock.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En emision</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/bocchi-the-rock/">Bocchi the Rock!</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/mobile-suit-gundam-the-witch-from-mercury/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/mobile-suit-gundam-the-witch-from-mercury.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/mobile-suit-gundam-the-witch-from-mercury.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En emision</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/mobile-suit-gundam-the-witch-from-mercury/">Mobile Suit Gundam: The Witch from Mercury</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/mushikaburi-hime/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/mushikaburi-hime.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/mushikaburi-hime.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En emision</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/mushikaburi-hime/">Mushikaburi-hime</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/noumin-kanren-no-skill-bakka-agetetara-nazeka-tsuyoku-natta/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/noumin-kanren-no-skill-bakka-agetetara-nazeka-tsuyoku-natta.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/noumin-kanren-no-skill-bakka-agetetara-nazeka-tsuyoku-natta.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En emision</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/noumin-kanren-no-skill-bakka-agetetara-nazeka-tsuyoku-natta/">Noumin Kanren no Skill bakka Agetetara Nazeka Tsuyoku Natta.</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/fuufu-ijou-koibito-miman/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/fuufu-ijou-koibito-miman.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/fuufu-ijou-koibito-miman.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>Por estrenar</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/fuufu-ijou-koibito-miman/">Fuufu Ijou, Koibito Miman.</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/yuusha-party-wo-tsuihou-sareta-beast-tamer-saikyoushu-no-nekomimi-shoujo-to-deau/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/yuusha-party-wo-tsuihou-sareta-beast-tamer-saikyoushu-no-nekomimi-shoujo-to-deau.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/yuusha-party-wo-tsuihou-sareta-beast-tamer-saikyoushu-no-nekomimi-shoujo-to-deau.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En emision</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/yuusha-party-wo-tsuihou-sareta-beast-tamer-saikyoushu-no-nekomimi-shoujo-to-deau/">Yuusha Party wo Tsuihou sareta Beast Tamer, Saikyoushu no Nekomimi Shoujo to Deau</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/koukyuu-no-karasu/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/koukyuu-no-karasu.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/koukyuu-no-karasu.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En emision</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/koukyuu-no-karasu/">Koukyuu no Karasu</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/akuyaku-reijou-nanode-last-boss-wo-kattemimashita/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/akuyaku-reijou-nanode-last-boss-wo-kattemimashita.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/akuyaku-reijou-nanode-last-boss-wo-kattemimashita.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En emision</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/akuyaku-reijou-nanode-last-boss-wo-kattemimashita/">Akuyaku Reijou nanode Last Boss wo Kattemimashita</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/do-it-yourself/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/do-it-yourself.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/do-it-yourself.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En emision</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/do-it-yourself/">Do It Yourself!!</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/tensei-shitara-ken-deshita/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/tensei-shitara-ken-deshita.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/tensei-shitara-ken-deshita.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En emision</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/tensei-shitara-ken-deshita/">Tensei shitara Ken Deshita</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/urusei-yatsura-2022/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/urusei-yatsura-2022.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/urusei-yatsura-2022.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En emision</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/urusei-yatsura-2022/">Urusei Yatsura (2022)</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                    
+
+                
+                	
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="anime__item">
+                                    <a  href="https://jkanime.net/kage-no-jitsuryokusha-ni-naritakute/"><div class="anime__item__pic set-bg" data-setbg="https://cdn.jkdesu.com/assets/images/animes/image/kage-no-jitsuryokusha-ni-naritakute.jpg" style="background-image: url(&quot;https://cdn.jkdesu.com/assets/images/animes/image/kage-no-jitsuryokusha-ni-naritakute.jpg&quot;);">
+                                   <!--            <div class="ep">18 / 18</div> -->
+                                    <!--      <div class="comment"><i class="fa fa-comments"></i> 11</div>  -->
+                                       
+                                    </div></a>
+                                    <div class="anime__item__text"><ul><li>En emision</li>
+                                            <li class="anime"> Anime
+                                        </li>
+                                        </ul>
+                                        <h5><a  href="https://jkanime.net/kage-no-jitsuryokusha-ni-naritakute/">Kage no Jitsuryokusha ni Naritakute!</a></h5>
+                                    </div>
+                                </div>
+                            </div>	
+					                					                
+					                		
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="col-lg-4 col-md-6 col-sm-8 trending_div">
+				
+                                <div class="section-title">
+                                    <h4>Listado de últimos agregados</h4>
+                                </div>
+								
+						<ul class="side-menu">
+							
+  
+                                                                                                                                                      <li class="odd">
+                                <a href="https://jkanime.net/karakai-jouzu-no-takagi-san-movie/" rel="bookmark">Karakai Jouzu no Takagi-san Movie</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/one-piece-film-red/" rel="bookmark">One Piece Film: Red</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/5-toubun-no-hanayome-movie/" rel="bookmark">5-toubun no Hanayome Movie</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/kachou-ouji/" rel="bookmark">Kachou Ouji</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/arknights-reimei-zensou/" rel="bookmark">Arknights: Reimei Zensou</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/bakemono-no-ko/" rel="bookmark">Bakemono no Ko</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/artiswitch/" rel="bookmark">Artiswitch</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/megaton-kyuu-musashi-2nd-season/" rel="bookmark">Megaton-kyuu Musashi 2nd Season</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/ginga-eiyuu-densetsu-die-neue-these-sakubou/" rel="bookmark">Ginga Eiyuu Densetsu: Die Neue These - Sakubou</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/fruits-basket-prelude/" rel="bookmark">Fruits Basket: Prelude</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/human-bug-daigaku/" rel="bookmark">Human Bug Daigaku</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/yuukoku-no-moriarty-ova/" rel="bookmark">Yuukoku no Moriarty OVA</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/berserk-ougon-jidai-hen-memorial-edition/" rel="bookmark">Berserk: Ougon Jidai-hen - Memorial Edition</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/the-daily-life-of-the-inmortal-king-3nd-season/" rel="bookmark">The Daily Life of the Immortal King 3</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/robomasters-the-animated-series/" rel="bookmark">RoboMasters the Animated Series</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/meitantei-conan-hannin-no-hanzawa-san/" rel="bookmark">Meitantei Conan: Hannin no Hanzawa-san</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/romantic-killer/" rel="bookmark">Romantic Killer</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/vazzrock-the-animation/" rel="bookmark">Vazzrock The Animation</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/c-danchi/" rel="bookmark">C Danchi</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/akiba-maid-sensou/" rel="bookmark">Akiba Maid Sensou</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/aru-asa-dummy-head-mic-ni-natteita-ore-kun-no-jinsei/" rel="bookmark">Aru Asa Dummy Head Mic ni Natteita Ore-kun no Jinsei</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/eternal-boys/" rel="bookmark">Eternal Boys</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/seiken-densetsu-legend-of-mana-the-teardrop-crystal/" rel="bookmark">Seiken Densetsu: Legend of Mana - The Teardrop Crystal</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/4-nin-wa-sorezore-uso-wo-tsuku/" rel="bookmark">4-nin wa Sorezore Uso wo Tsuku</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/uchi-no-shishou-wa-shippo-ga-nai/" rel="bookmark">Uchi no Shishou wa Shippo ga Nai</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/futoku-no-guild/" rel="bookmark">Futoku no Guild</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/renai-flops/" rel="bookmark">Renai Flops</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/cool-doji-danshi/" rel="bookmark">Cool Doji Danshi</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/bocchi-the-rock/" rel="bookmark">Bocchi the Rock!</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/mobile-suit-gundam-the-witch-from-mercury/" rel="bookmark">Mobile Suit Gundam: The Witch from Mercury</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/mushikaburi-hime/" rel="bookmark">Mushikaburi-hime</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/noumin-kanren-no-skill-bakka-agetetara-nazeka-tsuyoku-natta/" rel="bookmark">Noumin Kanren no Skill bakka Agetetara Nazeka Tsuyoku Natta.</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/fuufu-ijou-koibito-miman/" rel="bookmark">Fuufu Ijou, Koibito Miman.</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/yuusha-party-wo-tsuihou-sareta-beast-tamer-saikyoushu-no-nekomimi-shoujo-to-deau/" rel="bookmark">Yuusha Party wo Tsuihou sareta Beast Tamer, Saikyoushu no Nekomimi Shoujo to Deau</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/koukyuu-no-karasu/" rel="bookmark">Koukyuu no Karasu</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/akuyaku-reijou-nanode-last-boss-wo-kattemimashita/" rel="bookmark">Akuyaku Reijou nanode Last Boss wo Kattemimashita</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/do-it-yourself/" rel="bookmark">Do It Yourself!!</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/tensei-shitara-ken-deshita/" rel="bookmark">Tensei shitara Ken Deshita</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/urusei-yatsura-2022/" rel="bookmark">Urusei Yatsura (2022)</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/kage-no-jitsuryokusha-ni-naritakute/" rel="bookmark">Kage no Jitsuryokusha ni Naritakute!</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/blue-lock/" rel="bookmark">Blue Lock</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/muv-luv-alternative-2nd-season/" rel="bookmark">Muv-Luv Alternative 2nd Season</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/idolish7-third-beat-part-2/" rel="bookmark">IDOLiSH7: Third Beat! Part 2</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/yowamushi-pedal-limit-break/" rel="bookmark">Yowamushi Pedal: Limit Break</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/poputepipikku-2nd-season/" rel="bookmark">Poputepipikku 2nd Season</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/peter-grill-to-kenja-no-jikan-super-extra/" rel="bookmark">Peter Grill to Kenja no Jikan: Super Extra</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/kancolle-itsuka-ano-umi-de/" rel="bookmark">KanColle: Itsuka Ano Umi de</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/mairimashita-iruma-kun-3rd-season/" rel="bookmark">Mairimashita! Iruma-kun 3rd Season</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/uzaki-chan-wa-asobitai-double/" rel="bookmark">Uzaki-chan wa Asobitai! Double</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/fumetsu-no-anata-e-2nd-season/" rel="bookmark">Fumetsu no Anata e 2nd Season</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/arifureta-shokugyou-de-sekai-saikyou-2nd-season-special/" rel="bookmark">Arifureta Shokugyou de Sekai Saikyou 2nd Season Special</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/boku-no-hero-academia-6th-season/" rel="bookmark">Boku no Hero Academia 6th Season</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/spy-x-family-part-2/" rel="bookmark">Spy x Family Part 2</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/mob-psycho-100-iii/" rel="bookmark">Mob Psycho 100 III</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/chainsaw-man/" rel="bookmark">Chainsaw Man</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/yama-no-susume-next-summit/" rel="bookmark">Yama no Susume: Next Summit</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/shinobi-no-ittoki/" rel="bookmark">Shinobi no Ittoki</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/bleach-sennen-kessen-hen/" rel="bookmark">Bleach: Sennen Kessen-hen</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/shinmai-renkinjutsushi-no-tenpo-keiei/" rel="bookmark">Shinmai Renkinjutsushi no Tenpo Keiei</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/golden-kamuy-4th-season/" rel="bookmark">Golden Kamuy 4th Season</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/jujutsu-kaisen-0-movie/" rel="bookmark">Jujutsu Kaisen 0 Movie</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/cyberpunk-edgerunners/" rel="bookmark">Cyberpunk: Edgerunners</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/odd-taxi-movie-in-the-woods/" rel="bookmark">Odd Taxi Movie: In the Woods</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/bang-dream-movie-poppin-dream/" rel="bookmark">BanG Dream! Movie: Poppin&#039; Dream!</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/dantalian-no-shoka-ibarahime/" rel="bookmark">Dantalian no Shoka: Ibarahime</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/dantalian-no-shoka/" rel="bookmark">Dantalian no Shoka</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/gokushufudou-part-2/" rel="bookmark">Gokushufudou Part 2</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/gokushufudou/" rel="bookmark">Gokushufudou</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/fushigi-yuugi/" rel="bookmark">Fushigi Yuugi</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/bang-dream-movie-episode-of-roselia-ii-song-i-am/" rel="bookmark">BanG Dream! Movie: Episode of Roselia - II: Song I Am.</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/bang-dream-movie-episode-of-roselia-i-yakusoku/" rel="bookmark">BanG Dream! Movie: Episode of Roselia - I: Yakusoku</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/bang-dream-film-live-2nd-stage/" rel="bookmark">BanG Dream! Film Live 2nd Stage</a>
+                            </li>
+                                                                                                <li class="odd">
+                                <a href="https://jkanime.net/totsukuni-no-shoujo-2022/" rel="bookmark">Totsukuni no Shoujo (2022)</a>
+                            </li>
+                                                                                                <li class="even">
+                                <a href="https://jkanime.net/kakegurui-twin/" rel="bookmark">Kakegurui Twin</a>
+                            </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                                    
+                                                                                                
+					</ul>
+				</div>
+
+
+</div>
+</div>
+</section>
+
+                                
+
+
+        </div>
+        
+        
+                    <!--   adnum 2 -->
+            
+
+
+<script type='text/javascript' src='//additionssurvivor.com/12/0f/88/120f884b8e811950cbc74b1ff61dc7c1.js'></script>
+
+
+ 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K46KCYF6E9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K46KCYF6E9');
+</script>
+
+
+<script src="https://cdn.jkdesu.com/assets2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jkdesu.com/assets2/js/player.js"></script>
+<script src="https://cdn.jkdesu.com/assets2/js/jquery.nice-select.min.js"></script>
+<script src="https://cdn.jkdesu.com/assets2/js/mixitup.min.js"></script>
+<script src="https://cdn.jkdesu.com/assets2/js/jquery.slicknav.js"></script>
+<script src="https://cdn.jkdesu.com/assets2/js/owl.carousel.min.js"></script>
+<script src="https://cdn.jkdesu.com/assets2/js/jquery.simplemodal.js"></script>
+<script src="https://cdn.jkdesu.com/assets2/js/jquery.toast.js"></script>
+<script src="https://cdn.jkdesu.com/assets2/js/jquery-confirm.js"></script>
+<script src="https://cdn.jkdesu.com/assets2/js/main.js?=v6.5.10"></script>
+
+
+<footer class="footer">
+    <div class="page-up">
+        <a href="#" id="scrollToTopButton"><span class="arrow_carrot-up"></span></a>
+    </div>
+    <div class="container">
+        <div class="row">
+		
+            <div class="col-lg-9">
+                <div class="footer__nav">
+                    <ul>
+                        <li class="active"><a href="#">Inicio</a></li>
+                        <li><a href="#">Categorias</a></li>
+                        <li><a href="#">Anime Episodios</a></li>
+                        <li><a href="#">Episodio</a></li>
+                        <li><a href="https://discord.otakudesho.net/">Chat</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="footer__logo">
+                    <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                </div>
+            </div>
+          </div>
+      </div>
+  </footer>
+
+    </body>
+</html>
